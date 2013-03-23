@@ -105,7 +105,7 @@ public final class BinaryTree<T extends Comparable<T>> {
     private void encode(Node<T> node, StringBuilder builder) {
         assert (node != null) && (builder != null);
 
-        builder.append(node.getKey().toString());
+        builder.append(node.toString());
 
         if (node.hasLeft()) {
             builder.append(OPEN_BRACE);
@@ -287,6 +287,14 @@ public final class BinaryTree<T extends Comparable<T>> {
     }
 
     /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return encode();
+    }
+
+    /**
      * Represents a node of a tree.
      * 
      * @author Fabian Foerg
@@ -390,6 +398,14 @@ public final class BinaryTree<T extends Comparable<T>> {
          */
         public boolean hasChild() {
             return hasLeft() || hasRight();
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public String toString() {
+            return key.toString();
         }
     }
 }
